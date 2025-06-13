@@ -1,136 +1,168 @@
-# LitElement JavaScript starter
+# Employee Management Application
 
-This project includes a sample component using LitElement with JavaScript.
+[![Live Demo](https://img.shields.io/badge/Live%20Demo-employee--app--ruddy.vercel.app-brightgreen?style=flat-square&logo=vercel)](https://employee-app-ruddy.vercel.app/)
 
-This template is generated from the `lit-starter-js` package in [the main Lit
-repo](https://github.com/lit/lit). Issues and PRs for this template should be
-filed in that repo.
+## 🚀 Overview
 
-## About this release
+This project is a modern, fully tested **Employee Management Application** built with **LitElement (JavaScript)**. It is designed as a case study for ING and aims to provide HR staff with an intuitive, robust, and responsive interface to manage employee records.
 
-This is a pre-release of Lit 3.0, the next major version of Lit.
+- **Live Demo:** [https://employee-app-ruddy.vercel.app/](https://employee-app-ruddy.vercel.app/)
 
-Lit 3.0 has very few breaking changes from Lit 2.0:
+---
 
-- Drops support for IE11
-- Published as ES2021
-- Removes a couple of deprecated Lit 1.x APIs
+## 📚 Features
 
-Lit 3.0 should require no changes to upgrade from Lit 2.0 for the vast majority of users. Once the full release is published, most apps and libraries will be able to extend their npm version ranges to include both 2.x and 3.x, like `"^2.7.0 || ^3.0.0"`.
+- **Employee Listing:**
+  - View all employee records in both table and card (list) formats.
+  - Pagination and search functionality for both views.
+  - Edit and Delete actions for each employee.
 
-Lit 2.x and 3.0 are _interoperable_: templates, base classes, directives, decorators, etc., from one version of Lit will work with those from another.
+- **Add Employee:**
+  - Add a new employee with fields: First Name, Last Name, Employment Date, Birth Date, Phone, Email, Department (Analytics/Tech), Position (Junior/Medior/Senior).
+  - Strong validation: required fields, email/phone format, unique email, logical date checks.
 
-Please file any issues you find on our [issue tracker](https://github.com/lit/lit/issues).
+- **Edit Employee:**
+  - Edit any employee record via a dedicated form.
+  - Pre-filled form with current data.
+  - Confirmation dialog before updating.
 
-## Setup
+- **Delete Employee:**
+  - Delete any employee with confirmation dialog.
+  - Bulk delete support via selection checkboxes.
 
-Install dependencies:
+- **Navigation:**
+  - Custom navigation bar for seamless page switching.
+  - Client-side routing with [Vaadin Router](https://vaadin.github.io/vaadin-router/).
 
-```bash
-npm i
+- **Localization:**
+  - Full support for English and Turkish.
+  - Language auto-detected from the root HTML `lang` attribute.
+
+- **Responsive Design:**
+  - Fully responsive for desktop and mobile.
+  - No CSS frameworks (e.g., Bootstrap) used; all styles are custom.
+
+- **State Management:**
+  - Employee data is persisted in browser localStorage.
+  - Custom store implementation for state updates and reactivity.
+
+- **Testing:**
+  - Detailed unit tests for all components and features.
+  - >85% test coverage (see below for details).
+
+---
+
+## 🏗️ Project Structure
+
+```
+├── assets/           # Static assets (icons, images)
+├── components/       # LitElement web components (employee-list, employee-form, nav-bar, confirm-dialog, etc.)
+├── contants/         # Constants used throughout the app
+├── locales/          # Localization files (en, tr)
+├── store/            # State management (localStorage logic)
+├── styles/           # Custom CSS
+├── utils/            # Utility functions (i18n, validation, etc.)
+├── views/            # Page-level components
+├── index.html        # App entry point
+├── main.js           # Main JS entry (router, app init)
+├── router.js         # Vaadin Router setup
+├── package.json      # Project metadata and scripts
+├── rollup.config.js  # Rollup bundler config
+├── test/             # Unit tests for all components
+└── ...
 ```
 
-## Testing
+---
 
-This sample modern-web.dev's
-[@web/test-runner](https://www.npmjs.com/package/@web/test-runner) for testing. See the
-[modern-web.dev testing documentation](https://modern-web.dev/docs/test-runner/overview) for
-more information.
+## ⚙️ Getting Started
 
-Tests can be run with the `test` script, which will run your tests against Lit's development mode (with more verbose errors) as well as against Lit's production mode:
+### 1. **Clone the Repository**
+```sh
+git clone https://github.com/your-username/employee-management-app.git
+cd employee-management-app
+```
 
-```bash
+### 2. **Install Dependencies**
+```sh
+npm install
+```
+
+### 3. **Run Locally**
+```sh
+npm start
+# or
+npx web-dev-server --app-index index.html --node-resolve --open --watch --history-api-fallback
+```
+
+### 4. **Build for Production**
+```sh
+npm run build
+```
+- Output will be in the `dist/` directory.
+
+### 5. **Run Tests**
+```sh
 npm test
 ```
+- Coverage reports are generated automatically.
 
-For local testing during development, the `test:dev:watch` command will run your tests in Lit's development mode (with verbose errors) on every change to your source files:
+---
 
-```bash
-npm test:watch
-```
+## 🧩 Key Components
 
-Alternatively the `test:prod` and `test:prod:watch` commands will run your tests in Lit's production mode.
+- **<employee-list>**: Displays employees in table or card view, supports search, pagination, edit, and delete.
+- **<employee-form>**: Add/edit employee form with validation and localization.
+- **<confirm-dialog>**: Reusable confirmation dialog for delete/edit actions.
+- **<nav-bar>**: Responsive navigation bar with language switcher.
 
-## Dev Server
+---
 
-This sample uses modern-web.dev's [@web/dev-server](https://www.npmjs.com/package/@web/dev-server) for previewing the project without additional build steps. Web Dev Server handles resolving Node-style "bare" import specifiers, which aren't supported in browsers. It also automatically transpiles JavaScript and adds polyfills to support older browsers. See [modern-web.dev's Web Dev Server documentation](https://modern-web.dev/docs/dev-server/overview/) for more information.
+## 🌍 Localization
+- All UI text is localized (English & Turkish).
+- Language is auto-detected from `<html lang="en">` or `<html lang="tr">`.
+- Easily extendable for more languages via the `locales/` directory.
 
-To run the dev server and open the project in a new browser tab:
+---
 
-```bash
-npm run serve
-```
+## 🧪 Testing & Coverage
+- All components and business logic are covered by unit tests using [@open-wc/testing](https://open-wc.org/docs/testing/).
+- Test coverage is >85%.
+- To run tests and see coverage:
+  ```sh
+  npm test
+  # Coverage report will be shown in the terminal and as HTML output
+  ```
 
-There is a development HTML file located at `/dev/index.html` that you can view at http://localhost:8000/dev/index.html. Note that this command will serve your code using Lit's development mode (with more verbose errors). To serve your code against Lit's production mode, use `npm run serve:prod`.
+---
 
-## Editing
+## 🛠️ Technical Highlights
+- **LitElement**: Modern, fast, and lightweight web components.
+- **Vaadin Router**: Client-side routing for SPA navigation.
+- **Custom State Management**: No Redux, all logic is in `store/` and uses localStorage.
+- **No CSS Frameworks**: All responsive design is hand-crafted.
+- **Accessibility**: Semantic HTML, keyboard navigation, and ARIA attributes where appropriate.
+- **CI/CD Ready**: Easily deployable to Vercel, Netlify, or any static host.
 
-If you use VS Code, we highly recommend the [lit-plugin extension](https://marketplace.visualstudio.com/items?itemName=runem.lit-plugin), which enables some extremely useful features for lit-html templates:
+---
 
-- Syntax highlighting
-- Type-checking
-- Code completion
-- Hover-over docs
-- Jump to definition
-- Linting
-- Quick Fixes
+## 🌐 Live Demo
+[https://employee-app-ruddy.vercel.app/](https://employee-app-ruddy.vercel.app/)
 
-The project is setup to recommend lit-plugin to VS Code users if they don't already have it installed.
+---
 
-## Linting
+## 📋 Case Study Requirements Checklist
 
-Linting of JavaScript files is provided by [ESLint](eslint.org). In addition, [lit-analyzer](https://www.npmjs.com/package/lit-analyzer) is used to type-check and lint lit-html templates with the same engine and rules as lit-plugin.
+- [x] List all employee records (table & list view, pagination, search)
+- [x] Add new employee (with validation)
+- [x] Edit employee (with confirmation)
+- [x] Delete employee (with confirmation & bulk delete)
+- [x] Navigation menu
+- [x] Client-side routing (Vaadin Router)
+- [x] Responsive design (no CSS frameworks)
+- [x] State management (localStorage)
+- [x] Localization (EN/TR)
+- [x] Unit tests (>85% coverage)
+- [x] Working application, ready for review
 
-The rules are mostly the recommended rules from each project, but some have been turned off to make LitElement usage easier. The recommended rules are pretty strict, so you may want to relax them by editing `.eslintrc.json`.
 
-To lint the project run:
-
-```bash
-npm run lint
-```
-
-## Formatting
-
-[Prettier](https://prettier.io/) is used for code formatting. It has been pre-configured according to the Lit's style. You can change this in `.prettierrc.json`.
-
-Prettier has not been configured to run when committing files, but this can be added with Husky and `pretty-quick`. See the [prettier.io](https://prettier.io/) site for instructions.
-
-## Static Site
-
-This project includes a simple website generated with the [eleventy](https://11ty.dev) static site generator and the templates and pages in `/docs-src`. The site is generated to `/docs` and intended to be checked in so that GitHub pages can serve the site [from `/docs` on the main branch](https://help.github.com/en/github/working-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site).
-
-To enable the site go to the GitHub settings and change the GitHub Pages &quot;Source&quot; setting to &quot;main branch /docs folder&quot;.</p>
-
-To build the site, run:
-
-```bash
-npm run docs
-```
-
-To serve the site locally, run:
-
-```bash
-npm run docs:serve
-```
-
-To watch the site files, and re-build automatically, run:
-
-```bash
-npm run docs:gen:watch
-```
-
-The site will usually be served at http://localhost:8000.
-
-**Note**: The project uses Rollup to bundle and minify the source code for the docs site and not to publish to NPM. For bundling and minification, check the [Bundling and minification](#bundling-and-minification) section.
-
-## Bundling and minification
-
-As stated in the [static site generation](#static-site) section, the bundling and minification setup in the Rollup configuration in this project is there specifically for the docs generation.
-
-We recommend publishing components as unoptimized JavaScript modules and performing build-time optimizations at the application level. This gives build tools the best chance to deduplicate code, remove dead code, and so on.
-
-Please check the [Publishing best practices](https://lit.dev/docs/tools/publishing/#publishing-best-practices) for information on publishing reusable Web Components, and [Build for production](https://lit.dev/docs/tools/production/) for building application projects that include LitElement components, on the Lit site.
-
-## More information
-
-See [Get started](https://lit.dev/docs/getting-started/) on the Lit site for more information.
+> **This project was developed as a case study for ING.**
