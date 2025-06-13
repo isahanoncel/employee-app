@@ -15,6 +15,10 @@ export class EmployeeForm extends LitElement {
       display: flex;
       flex-direction: column;
       gap: var(--spacing-large);
+
+      @media (max-width: 992px) {
+        max-width: 90%;
+      }
     }
     .form-title {
       font-size: var(--font-size-xxl);

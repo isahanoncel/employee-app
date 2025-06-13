@@ -29,5 +29,6 @@
   "deleteConfirmDesc": "{firstName} {lastName} isimli personel kaydı silinecektir.",
   "deleteSelectedEmployees": "Seçilen Personelleri Sil",
   "deleteSelectedEmployeesDesc": "Seçilen personeller silinecektir.",
-  "proceed": "Evet"
+  "proceed": "Evet",
+  "noEmployeesFound": "Personel Bulunamadı"
 }

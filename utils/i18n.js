@@ -2,7 +2,7 @@ let translations = {};
 let lang = localStorage.getItem('lang') || document.documentElement.lang || 'tr';
 
 const CACHE_KEY_PREFIX = 'translations_';
-const CACHE_VERSION = '1.8';
+const CACHE_VERSION = '1.9';
 
 function getCacheKey(lang) {
   return `${CACHE_KEY_PREFIX}${lang}_${CACHE_VERSION}`;

@@ -30,5 +30,6 @@
   "deleteConfirmDesc": "Selected employee record of {firstName} {lastName} will be deleted.",
   "deleteSelectedEmployees": "Delete Selected Employees",
   "deleteSelectedEmployeesDesc": "Selected employees will be deleted.",
-  "proceed": "Proceed"
+  "proceed": "Proceed",
+  "noEmployeesFound": "No employees found"
 }

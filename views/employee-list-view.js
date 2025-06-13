@@ -1,6 +1,7 @@
 import { LitElement, html, css } from 'lit';
 import '../components/employee-list.js';
 import {EMPLOYEE_VIEW_TYPE} from '../contants/employee.js';
+import { t } from '../utils/i18n.js';
 
 export class EmployeeListView extends LitElement {
   static styles = css`
@@ -46,17 +47,33 @@ export class EmployeeListView extends LitElement {
   constructor() {
     super();
     this.view = EMPLOYEE_VIEW_TYPE.TABLE;
+    this._onLanguageChanged = this._onLanguageChanged.bind(this);
   }
 
   setView(view) {
     this.view = view;
   }
 
+  _onLanguageChanged() {
+    this.requestUpdate();
+  }
+
+  connectedCallback() {
+    super.connectedCallback();
+    window.addEventListener('language-changed', this._onLanguageChanged);
+  }
+
+  disconnectedCallback() {
+    super.disconnectedCallback();
+    window.removeEventListener('language-changed', this._onLanguageChanged);
+  }
+
+
   render() {
     return html`
       <div>
         <div class="header">
-          <h2 class="header-title">Employee List</h2>
+          <h2 class="header-title">${t('employeeList')}</h2>
           <div class="view-toggle">
             <button class="toggle-btn ${this.view === 'table' ? 'active' : ''}" @click=${() => this.setView('table')} title="Table View">
               <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="6" height="6"/><rect x="12" y="2" width="6" height="6"/><rect x="2" y="12" width="6" height="6"/><rect x="12" y="12" width="6" height="6"/></svg>

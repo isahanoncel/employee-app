@@ -250,6 +250,34 @@ export class EmployeeList extends LitElement {
       font-weight: var(--font-weight-bold);
       text-transform: uppercase;
     }
+    .empty-state {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: var(--spacing-xl) var(--spacing-large);
+      text-align: center;
+      background: var(--color-white);
+      border-radius: var(--border-radius-large);
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
+    }
+    .empty-state-icon {
+      width: 64px;
+      height: 64px;
+      opacity: 0.5;
+    }
+    .empty-state-title {
+      font-size: var(--font-size-xl);
+      font-weight: var(--font-weight-bold);
+      color: var(--color-text-primary);
+      margin-bottom: var(--spacing-small);
+    }
+    .empty-state-description {
+      font-size: var(--font-size-medium);
+      color: var(--color-text-secondary);
+      max-width: 400px;
+      margin: 0 auto;
+    }
   `;
 
   static properties = {
@@ -412,7 +440,20 @@ export class EmployeeList extends LitElement {
     this.employeeToDelete = null;
   }
 
+  renderEmptyState() {
+    return html`
+      <div class="empty-state">
+        <img src="/assets/icons/empty-state.svg" alt="No data" class="empty-state-icon" />
+        <h3 class="empty-state-title">${t('noEmployeesFound')}</h3>
+      </div>
+    `;
+  }
+
   renderTable() {
+    if (this.pagedEmployees.length === 0) {
+      return this.renderEmptyState();
+    }
+
     return html`
       <div class="table-wrapper">
         ${this.selectedIds.length > 0 ? html`
@@ -489,6 +530,10 @@ export class EmployeeList extends LitElement {
   }
 
   renderList() {
+    if (this.pagedEmployees.length === 0) {
+      return this.renderEmptyState();
+    }
+
     return html`
       <div class="list-view">
         ${this.pagedEmployees.map(
@@ -613,7 +658,7 @@ export class EmployeeList extends LitElement {
         ? this.renderTable()
         : this.renderList()}
 
-      ${this.renderPagination()}
+      ${this.pagedEmployees.length > 0 ? this.renderPagination() : ''}
 
       <confirm-dialog
         .open=${this.showDeleteConfirm}
