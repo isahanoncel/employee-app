@@ -1,10 +1,10 @@
 {
-  "name": "@lit/lit-starter-js",
+  "name": "employee-management",
   "private": true,
-  "version": "2.0.2",
-  "description": "A simple web component",
-  "main": "my-element.js",
-  "module": "my-element.js",
+  "version": "1.0.0",
+  "description": "Employee Management System",
+  "main": "main.js",
+  "module": "main.js",
   "type": "module",
   "scripts": {
     "start": "wds --watch",
@@ -13,23 +13,13 @@
     "lint:eslint": "eslint '**/*.js'",
     "lint:lit-analyzer": "lit-analyzer my-element.js",
     "format": "prettier \"**/*.{cjs,html,js,json,md,ts}\" --ignore-path ./.eslintignore --write",
-    "docs": "npm run docs:clean && npm run analyze && npm run docs:build && npm run docs:assets && npm run docs:gen",
-    "docs:clean": "rimraf docs",
-    "docs:gen": "eleventy --config=.eleventy.cjs",
-    "docs:gen:watch": "eleventy --config=.eleventy.cjs --watch",
-    "docs:build": "rollup -c --file docs/my-element.bundled.js",
-    "docs:assets": "cp node_modules/prismjs/themes/prism-okaidia.css docs/",
-    "docs:serve": "wds --root-dir=docs --node-resolve --watch",
-    "analyze": "cem analyze --litelement --globs \"**/*.js\" --exclude docs",
-    "analyze:watch": "cem analyze --litelement --globs \"**/*.js\" --exclude docs --watch",
     "serve": "wds --watch",
     "serve:prod": "MODE=prod npm run serve",
     "test": "npm run test:dev && npm run test:prod",
     "test:dev": "wtr",
     "test:watch": "wtr --watch",
     "test:prod": "MODE=prod wtr",
-    "test:prod:watch": "MODE=prod wtr --watch",
-    "checksize": "rollup -c ; cat my-element.bundled.js | gzip -9 | wc -c ; rm my-element.bundled.js"
+    "test:prod:watch": "MODE=prod wtr --watch"
   },
   "keywords": [
     "web-components",
@@ -37,8 +27,7 @@
     "javascript",
     "lit"
   ],
-  "author": "Google LLC",
-  "license": "BSD-3-Clause",
+  "author": "Isahan Oncel",
   "dependencies": {
     "@vaadin/router": "^2.0.0",
     "lit": "^3.2.0"
@@ -64,6 +53,5 @@
     "rollup": "^4.18.0",
     "rollup-plugin-copy": "^3.5.0",
     "rollup-plugin-summary": "^2.0.1"
-  },
-  "customElements": "custom-elements.json"
+  }
 }
