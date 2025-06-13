@@ -7,6 +7,7 @@
   "module": "my-element.js",
   "type": "module",
   "scripts": {
+    "start": "wds --watch",
     "build": "rollup -c",
     "lint": "npm run lint:lit-analyzer && npm run lint:eslint",
     "lint:eslint": "eslint '**/*.js'",
