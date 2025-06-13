@@ -17,9 +17,11 @@ export default {
   plugins: [
     legacyPlugin({
       polyfills: {
-        // Manually imported in index.html file
         webcomponents: false,
       },
     }),
   ],
+  appIndex: 'index.html',
+  open: true,
+  historyApiFallback: true
 };
