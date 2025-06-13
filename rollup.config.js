@@ -1,19 +1,15 @@
-/**
- * @license
- * Copyright 2018 Google LLC
- * SPDX-License-Identifier: BSD-3-Clause
- */
-
 import summary from 'rollup-plugin-summary';
-import {terser} from 'rollup-plugin-terser';
 import resolve from '@rollup/plugin-node-resolve';
 import replace from '@rollup/plugin-replace';
+import copy from 'rollup-plugin-copy';
+import terser from '@rollup/plugin-terser';
 
 export default {
-  input: 'my-element.js',
+  input: 'main.js',
   output: {
-    file: 'my-element.bundled.js',
+    dir: 'dist',
     format: 'esm',
+    entryFileNames: 'main.js'
   },
   onwarn(warning) {
     if (warning.code !== 'THIS_IS_UNDEFINED') {
@@ -23,10 +19,6 @@ export default {
   plugins: [
     replace({preventAssignment: false, 'Reflect.decorate': 'undefined'}),
     resolve(),
-    /**
-     * This minification setup serves the static site generation.
-     * For bundling and minification, check the README.md file.
-     */
     terser({
       ecma: 2021,
       module: true,
@@ -38,5 +30,19 @@ export default {
       },
     }),
     summary(),
+    copy({
+      targets: [
+        { src: 'index.html', dest: 'dist' },
+        { src: 'assets', dest: 'dist' },
+        { src: 'components', dest: 'dist' },
+        { src: 'contants', dest: 'dist' },
+        { src: 'locales', dest: 'dist' },
+        { src: 'router.js', dest: 'dist' },
+        { src: 'store', dest: 'dist' },
+        { src: 'styles', dest: 'dist' },
+        { src: 'utils', dest: 'dist' },
+        { src: 'views', dest: 'dist' }
+      ]
+    })
   ],
 };
