@@ -238,6 +238,18 @@ export class EmployeeList extends LitElement {
         font-size: var(--font-size-small);
       }
     }
+    .delete-selected-employees {
+      background: var(--color-bg-gray);
+      color: var(--color-primary);
+      border: none;
+      padding: var(--spacing-small) var(--spacing-medium);
+      border-radius: var(--border-radius-medium);
+      cursor: pointer;
+      transition: background 0.2s;
+      font-size: var(--font-size-medium);
+      font-weight: var(--font-weight-bold);
+      text-transform: uppercase;
+    }
   `;
 
   static properties = {
@@ -405,7 +417,7 @@ export class EmployeeList extends LitElement {
       <div class="table-wrapper">
         ${this.selectedIds.length > 0 ? html`
           <div style="margin-bottom: var(--spacing-large); display: flex; justify-content: flex-end;">
-            <button class="btn btn-primary" @click=${this._onBulkDeleteClick}>
+            <button class="delete-selected-employees" @click=${this._onBulkDeleteClick}>
               ${t('deleteSelectedEmployees')}
             </button>
           </div>
