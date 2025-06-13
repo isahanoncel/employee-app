@@ -32,7 +32,7 @@ This project is a modern, fully tested **Employee Management Application** built
 
 - **Navigation:**
   - Custom navigation bar for seamless page switching.
-  - Client-side routing with [Vaadin Router](https://vaadin.github.io/vaadin-router/).
+  - Client-side routing with Vaadin Router.
 
 - **Localization:**
   - Full support for English and Turkish.
@@ -78,7 +78,7 @@ This project is a modern, fully tested **Employee Management Application** built
 
 ### 1. **Clone the Repository**
 ```sh
-git clone https://github.com/your-username/employee-management-app.git
+git clone https://github.com/isahanoncel/employee-app
 cd employee-management-app
 ```
 
