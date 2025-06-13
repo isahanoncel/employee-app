@@ -1,0 +1,11 @@
+:root{
+    --color-white: #fff;
+    --color-primary: #fe6b10;
+    --color-bg-gray: #f8f8f8;
+    --color-danger: #ff6200;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+  }
