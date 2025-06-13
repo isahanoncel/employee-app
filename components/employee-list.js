@@ -605,7 +605,7 @@ export class EmployeeList extends LitElement {
 
       <confirm-dialog
         .open=${this.showDeleteConfirm}
-        .title=${t('deleteConfirmTitle') || 'Are you sure?'}
+        .title=${t('deleteConfirmTitle')}
         .description=${t('deleteConfirmDesc')
           .replace('{firstName}', this.employeeToDelete?.firstName || '')
           .replace('{lastName}', this.employeeToDelete?.lastName || '')}

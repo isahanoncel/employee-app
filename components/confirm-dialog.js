@@ -1,4 +1,5 @@
 import { LitElement, html, css } from 'lit';
+import { t } from '../utils/i18n.js';
 
 export class ConfirmDialog extends LitElement {
   static styles = css`
@@ -104,8 +105,8 @@ export class ConfirmDialog extends LitElement {
           <div class="dialog-title">${this.title}</div>
           <div class="dialog-desc">${this.description}</div>
           <div class="dialog-actions">
-            <button class="btn btn-primary" @click=${this._proceed}>Proceed</button>
-            <button class="btn btn-secondary" @click=${this._close}>Cancel</button>
+            <button class="btn btn-primary" @click=${this._proceed}>${t('proceed')}</button>
+            <button class="btn btn-secondary" @click=${this._close}>${t('cancel')}</button>
           </div>
         </div>
       </div>

@@ -28,5 +28,6 @@
   "deleteConfirmTitle": "Personeli Sil",
   "deleteConfirmDesc": "{firstName} {lastName} isimli personel kaydı silinecektir.",
   "deleteSelectedEmployees": "Seçilen Personelleri Sil",
-  "deleteSelectedEmployeesDesc": "Seçilen personeller silinecektir."
+  "deleteSelectedEmployeesDesc": "Seçilen personeller silinecektir.",
+  "proceed": "Evet"
 }
