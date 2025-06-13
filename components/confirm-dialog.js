@@ -98,8 +98,8 @@ export class ConfirmDialog extends LitElement {
   render() {
     if (!this.open) return html``;
     return html`
-      <div class="overlay">
-        <div class="dialog">
+      <div class="overlay" @click=${this._close}>
+        <div class="dialog" @click=${e => e.stopPropagation()}>
           <button class="close-btn" @click=${this._close} aria-label="Close">&times;</button>
           <div class="dialog-title">${this.title}</div>
           <div class="dialog-desc">${this.description}</div>
