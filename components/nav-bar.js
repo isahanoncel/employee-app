@@ -331,10 +331,9 @@ export class NavBar extends LitElement {
             >
           </div>
         </div>
-        <div
-          class="overlay ${this._isMenuOpen ? 'active' : ''}"
-          @click=${this._closeMenu}
-        ></div>
+        ${this._isMenuOpen
+          ? html`<div class="overlay active" @click=${this._closeMenu}></div>`
+          : ''}
       </nav>
     `;
   }

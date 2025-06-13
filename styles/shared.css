@@ -5,6 +5,7 @@
   --color-bg-gray: #f8f8f8;
   --color-danger: #ff6200;
   --color-text-primary: #333333;
+  --color-secondary: #525199;
 
   /* fonts */
   --font-size-small: 12px;
@@ -30,7 +31,6 @@
   --spacing-xxl: 40px;
   --spacing-xxxl: 48px;
 
-
   /* border radius */
   --border-radius-small: 4px;
   --border-radius-medium: 8px;
@@ -38,7 +38,6 @@
   --border-radius-xl: 16px;
   --border-radius-xxl: 20px;
   --border-radius-xxxl: 24px;
-
 
   /* container */
   --container-width: 100%;
@@ -53,7 +52,6 @@ body {
   font-family: var(--font-family-primary);
   background-color: var(--color-bg-gray);
 }
-
 
 .container {
   width: 100%;
