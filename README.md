@@ -78,7 +78,7 @@ This project is a modern, fully tested **Employee Management Application** built
 
 ### 1. **Clone the Repository**
 ```sh
-git clone https://github.com/isahanoncel/employee-app
+git clone https://github.com/isahanoncel/employee-app.git
 cd employee-management-app
 ```
 
